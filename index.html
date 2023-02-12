@@ -75,7 +75,7 @@
                 <label type="rest" id="rest">Enter city:</label>
                 <input type="text" id="city">
                 <label type="rest" id="rest">Enter a priority level (1-5):</label>
-                <select id="price">
+                <select id="priority">
                     <option value="priority1">1</option>
                     <option value="priority2">2</option>
                     <option value="priority3">3</option>
@@ -107,6 +107,41 @@
                 </ul>
             </div>
         </div>
+        <div data-role="content" data-theme="e">
+            <input type="text" placeholder="Italian">
+            <button>Sort by Price</button>
+            <ul>
+                <li><a href=#samplepage data-transition="fade">Olive Garden</a></li>
+                <li>Little Italy</li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b">
+            <h3>Copyright 2023 by Dorothy Hung</h3>
+        </div>
+    </div>
+
+    <!-- sample data hidden page-->
+    <div data-role="page" id="samplepage">
+        <div data-role="header" data-theme="b">
+            <h2>Olive Garden</h2>
+            <div data-role="navbar" data-theme="b">
+                <ul>
+                    <li><a href=#home data-transition="fade">Home Page</a></li>
+                    <li><a href=#page2 data-transition="fade">Add a Restaurant</a></li>
+                    <li><a href=#page3 data-transition="fade">Search by Cuisine</a></li>
+                    <li><a href=#page4 data-transition="fade">Search by Location</a></li>
+                    <li><a href=#page5 data-transition="fade">View Favorites</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="e">
+            <h2>Olive Garden</h2>
+            <h3>Cuisine: Italian</h3>
+            <h3>Price Range: $10-$20</h3>
+            <h3>City: Kirkland, Tukwila</h3>
+            <h3>Rating: 3</h3>
+            <h3>Visted: yes</h3>
+        </div>
         <div data-role="footer" data-theme="b">
             <h3>Copyright 2023 by Dorothy Hung</h3>
         </div>
@@ -126,6 +161,14 @@
                 </ul>
             </div>
         </div>
+        <div data-role="content" data-theme="e">
+            <input type="text" placeholder="Kirkland">
+            <button>Sort by Price</button>
+            <ul>
+                <li><a href=#samplepage data-transition="fade">Olive Garden</a></li>
+                <li>Little Italy</li>
+            </ul>
+        </div>
         <div data-role="footer" data-theme="b">
             <h3>Copyright 2023 by Dorothy Hung</h3>
         </div>
@@ -144,6 +187,61 @@
                     <li><a href=#page5 data-transition="fade">View Favorites</a></li>
                 </ul>
             </div>
+        </div>
+        <div data-role="content" data-theme="e">
+            <button>Sort by Rating</button>
+            <ul>
+                <li><a href=#samplepage data-transition="fade">Olive Garden</a></li><a href=#editsamplepage>Edit Item</a>
+                <li><a href=#samplepage data-transition="fade">Little Italy</a></li><a href="#editsamplepage">Edit Item</a>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="b">
+            <h3>Copyright 2023 by Dorothy Hung</h3>
+        </div>
+    </div>
+
+    <!-- sample data hidden page to edit item-->
+    <div data-role="page" id="editsamplepage">
+        <div data-role="header" data-theme="b">
+            <h2>Olive Garden</h2>
+            <div data-role="navbar" data-theme="b">
+                <ul>
+                    <li><a href=#home data-transition="fade">Home Page</a></li>
+                    <li><a href=#page2 data-transition="fade">Add a Restaurant</a></li>
+                    <li><a href=#page3 data-transition="fade">Search by Cuisine</a></li>
+                    <li><a href=#page4 data-transition="fade">Search by Location</a></li>
+                    <li><a href=#page5 data-transition="fade">View Favorites</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="e">
+            <h2>Add a Restaurant to Your List</h2>
+            <form action="#">
+                <label type="rest" id="restname">Enter restaurant name:</label>
+                <input type="text" id="name" value="Olive Garden">
+                <label type="rest" id="rest">Enter cuisine:</label>
+                <input type="text" id="cuisine" value="Italian">
+                <label type="rest" id="rest">Enter price range:</label>
+                <select id="price" selected="price2">
+                    <option value="price1">$1-$10</option>
+                    <option value="price2">$10-$20</option>
+                    <option value="price3">$20-$30</option>
+                    <option value="price4">$30-$50</option>
+                    <option value="price5">$50 or more</option>
+                </select>
+                <label type="rest" id="rest">Enter city:</label>
+                <input type="text" id="city" value="Kirkland">
+                <label type="rest" id="rest">Enter a priority level (1-5):</label>
+                <select id="priority">
+                    <option value="priority1">1</option>
+                    <option value="priority2">2</option>
+                    <option value="priority3">3</option>
+                    <option value="priority4">4</option>
+                    <option value="priority5">5</option>
+                </select>
+                <input type="button" id="add" value="Save to List">
+                <input type="text" id="added" readonly="true">
+            </form>
         </div>
         <div data-role="footer" data-theme="b">
             <h3>Copyright 2023 by Dorothy Hung</h3>

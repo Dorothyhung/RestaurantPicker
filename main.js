@@ -10,6 +10,5 @@ var Restaurant = function(name, cuisine, price, city, priority, visited) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    //Add to Library
     
 })
