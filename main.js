@@ -11,7 +11,10 @@ var Restaurant = function(name, cuisine, price, city, priority, visited) {
     this.visited=visited;
 }
 
+let displayList = document.getElementById("myList");
+
 document.addEventListener("DOMContentLoaded", function(event) {
+    //Add Restaurants
     this.getElementById("add").addEventListener("click", function() {
         let restName = document.getElementById("name").value
         let cuisine = document.getElementById("cuisine").value
@@ -31,6 +34,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("cuisine").value = "";
             document.getElementById("city").value = "";
         }
+    })
+
+    //View List
+    /* this.getElementById("display").addEventListener("click", function() {
+        document.getElementById("myList").innerHTML = "";
+        document.getElementById("added").value = '';
+        displayList = document.getElementById("myList");
+        console.log(list)
+        for (i = 0; i < list.length; i++) {
+            let li = document.createElement("li");
+            console.log(list[i].name);
+            li.innerText = list[i].name + " cuisine is " + list[i].cuisine + " in " + list[i].city;
+            displayList.appendChild(li);
+        }
+        console.log(displayList)
+    }) */
+
+    //View List
+    this.querySelectorAll('.display').forEach(item=> {
+        item.addEventListener('click', function (){
+            document.getElementById("myList").innerHTML = "";
+            document.getElementById("added").value = '';
+            displayList = document.getElementById("myList");
+            console.log(list)
+            for (i = 0; i < list.length; i++) {
+                let li = document.createElement("li");
+                console.log(list[i].name);
+                li.innerText = list[i].name + " cuisine is " + list[i].cuisine + " in " + list[i].city;
+                displayList.appendChild(li);
+            }
+            console.log(displayList)
+        })
     })
 })
 
