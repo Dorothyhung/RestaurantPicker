@@ -72,21 +72,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }) */
 
     //Search List
-    this.querySelectorAll('.search').forEach(item=> {
-        item.addEventListener('click', function (){
-            //document.getElementById("myList2").innerHTML = "";
-            //document.getElementById("added").value = '';
-            displayList2 = document.getElementById("myList2");
-            console.log(list2)
-            for (i = 0; i < list2.length; i++) {
-                let ul = document.createElement("ul");
-                let li = document.createElement("li");
-                li.innerText = list2[i].name + " cuisine is " + list2[i].cuisine + " in " + list2[i].city;
-                let li2 = document.createElement("li"); 
-                searchList.appendChild(li);
-            }
-            console.log(displayList2)
-        })
+    document.getElementById("search").addEventListener("click", function() {
+        console.log("SEARCHING")
+        list2 = document.getElementById("searchList")
+        for (i = 0; i <list.length; i++) {
+            let li = document.createElement("li");
+            li.innerText = list[i].name + " Cuisine: " + list[i].cuisine + list[i].city;
+            list2.appendChild(li);
+        }
     })
 
 
@@ -94,13 +87,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         createList();
     })
 
+
     this.getElementById("details").addEventListener("click", function() {
-        
         let localID = localStorage.getItem('parm');
         console.log(localStorage.getItem('parm'))
         console.log(list[localID - 1]);
         console.log("In details page")
-        //list = JSON.parse(localStorage.getItem('list'));
+        list = JSON.parse(localStorage.getItem('list'));
         document.getElementById("detailName").innerHTML = "Restaurant: " + list[localID - 1].name;
         document.getElementById("detailCuisine").innerHTML = "Cuisine: " + list[localID - 1].cuisine;
         document.getElementById("detailPrice").innerHTML = "Price range: " + list[localID - 1].price.value;
