@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(displayList)
     }) */
 
-    //View List
+    //View List this works!
     this.querySelectorAll('.display').forEach(item=> {
         item.addEventListener('click', function (){
             document.getElementById("myList").innerHTML = "";
@@ -59,13 +59,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
             displayList = document.getElementById("myList");
             console.log(list)
             for (i = 0; i < list.length; i++) {
+                let ul = document.createElement("ul");
+                ul.
                 let li = document.createElement("li");
-                console.log(list[i].name);
                 li.innerText = list[i].name + " cuisine is " + list[i].cuisine + " in " + list[i].city;
+                let li2 = document.createElement("li"); 
                 displayList.appendChild(li);
             }
             console.log(displayList)
         })
     })
+
 })
 
