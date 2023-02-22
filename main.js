@@ -1,6 +1,4 @@
 list = [];
-list2 = [];
-idlist = [];
 
 var Restaurant = function(name, cuisine, price, city, visited) {
     this.ID=Math.random().toString(16).slice(5);
@@ -12,8 +10,9 @@ var Restaurant = function(name, cuisine, price, city, visited) {
     this.rID = list.length + 1;
 }
 
-let displayList = document.getElementById("myList");
-let searchList = document.getElementById("myList2")
+/* let displayList = document.getElementById("myList");
+let searchList = document.getElementById("myList2") */
+//let selectedGenre = "not selected";
 
 document.addEventListener("DOMContentLoaded", function(event) {
     //Add Restaurants
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         list.push(new Restaurant(
             document.getElementById("name").value, 
             document.getElementById("cuisine").value,
-            price,
+            document.getElementById("price").value,
             document.getElementById("city").value,
             list.length,  // set ID
             document.location.href = "index.html#View"))
@@ -30,10 +29,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("name").value = ""; 
         document.getElementById("cuisine").value = ""; 
         document.getElementById("city").value = ""; 
-
-/* 
-
-        let restName = document.getElementById("name").value
+    })
+    /* $(document).bind("change", "#select-price", function (event, ui) {
+        selectedPrice = $('#select-price').val();
+    }); */
+/* let restName = document.getElementById("name").value
         let cuisine = document.getElementById("cuisine").value
         let price = document.getElementById("price").value
         let city = document.getElementById("city").value
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("cuisine").value = "";
             document.getElementById("city").value = "";
         } */
-    })
+   
 
     //View List this works!
     /* this.getElementById("view").addEventListener("click", function() {
@@ -71,35 +71,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
     }) */
 
-    //Search List
-    document.getElementById("search").addEventListener("click", function() {
-        console.log("SEARCHING")
+    //Search List Page
+    document.getElementById("searchButton").addEventListener("click", function() {
         list2 = document.getElementById("searchList")
-        for (i = 0; i <list.length; i++) {
+        document.getElementById("searchList").innerHTML = "";
+        for (i = 0; i < list.length; i++) {
             let li = document.createElement("li");
-            li.innerText = list[i].name + " Cuisine: " + list[i].cuisine + list[i].city;
+            li.innerText = list[i].name + " Cuisine: " + list[i].cuisine + " in " + list[i].city;
             list2.appendChild(li);
+            i++;
         }
+        
+        
     })
 
-
-    this.getElementById("display").addEventListener("click", function() {
+    //View Page
+    this.getElementById("displayButton").addEventListener("click", function() {
         createList();
     })
 
-
-    this.getElementById("details").addEventListener("click", function() {
+    //Hidden details page
+    $(document).on("pagebeforeshow", "#details", function (event) {   
         let localID = localStorage.getItem('parm');
-        console.log(localStorage.getItem('parm'))
         console.log(list[localID - 1]);
         console.log("In details page")
         list = JSON.parse(localStorage.getItem('list'));
         document.getElementById("detailName").innerHTML = "Restaurant: " + list[localID - 1].name;
         document.getElementById("detailCuisine").innerHTML = "Cuisine: " + list[localID - 1].cuisine;
-        document.getElementById("detailPrice").innerHTML = "Price range: " + list[localID - 1].price.value;
+        document.getElementById("detailPrice").innerHTML = "Price range: " + list[localID - 1].price;
         document.getElementById("detailCity").innerHTML = "Location: " + list[localID - 1].city;
     })
-
 })
 
 
@@ -108,25 +109,23 @@ function createList() {
     let myUL = document.getElementById("myList");
     myUL.innerHTML = "";
     
-    list.forEach(function(oneRestaurant,) {
+    list.forEach(function(oneRestaurant) {
         var myLi = document.createElement("li");
         myLi.classList.add("oneRestaurant");
         myLi.setAttribute("data-parm", oneRestaurant.rID);
         myLi.innerHTML = oneRestaurant.rID + ": " + oneRestaurant.name;
         myUL.appendChild(myLi);
     })
-
     var lilist = document.getElementsByClassName("oneRestaurant");
     let newList = Array.from(lilist);
 
     newList.forEach(function (element) {
+        console.log("in dataparm function")
         element.addEventListener('click', function() {
             var parm = this.getAttribute("data-parm");
             localStorage.setItem('parm', parm);
-            console.log("parm = " + parm);
             let stringList = JSON.stringify(list);
             localStorage.setItem('list', stringList);
-
             document.location.href="index.html#details";
         })
     })
