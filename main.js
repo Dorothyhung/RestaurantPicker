@@ -1,4 +1,5 @@
 list = [];
+list2 = [];
 idlist = [];
 
 var Restaurant = function(name, cuisine, price, city, priority, visited) {
@@ -12,10 +13,27 @@ var Restaurant = function(name, cuisine, price, city, priority, visited) {
 }
 
 let displayList = document.getElementById("myList");
+let searchList = document.getElementById("myList2")
 
 document.addEventListener("DOMContentLoaded", function(event) {
     //Add Restaurants
-    this.getElementById("add").addEventListener("click", function() {
+    this.getElementById("addButton").addEventListener("click", function() {
+        list.push(new Restaurant(
+            document.getElementById("name").value, 
+            document.getElementById("cuisine").value,
+            price,
+            document.getElementById("city").value,
+            priority,
+            list.length,  // set ID
+            document.location.href = "index.html#View"))
+        console.log(list)
+
+        document.getElementById("name").value = ""; 
+        document.getElementById("cuisine").value = ""; 
+        document.getElementById("city").value = ""; 
+
+/* 
+
         let restName = document.getElementById("name").value
         let cuisine = document.getElementById("cuisine").value
         let price = document.getElementById("price").value
@@ -33,26 +51,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("name").value = "";
             document.getElementById("cuisine").value = "";
             document.getElementById("city").value = "";
-        }
+        } */
     })
 
-    //View List
-    /* this.getElementById("display").addEventListener("click", function() {
-        document.getElementById("myList").innerHTML = "";
-        document.getElementById("added").value = '';
-        displayList = document.getElementById("myList");
-        console.log(list)
-        for (i = 0; i < list.length; i++) {
-            let li = document.createElement("li");
-            console.log(list[i].name);
-            li.innerText = list[i].name + " cuisine is " + list[i].cuisine + " in " + list[i].city;
-            displayList.appendChild(li);
-        }
-        console.log(displayList)
-    }) */
-
     //View List this works!
-    this.querySelectorAll('.display').forEach(item=> {
+    /* this.getElementById("view").addEventListener("click", function() {
         item.addEventListener('click', function (){
             document.getElementById("myList").innerHTML = "";
             document.getElementById("added").value = '';
@@ -60,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             console.log(list)
             for (i = 0; i < list.length; i++) {
                 let ul = document.createElement("ul");
-                ul.
                 let li = document.createElement("li");
                 li.innerText = list[i].name + " cuisine is " + list[i].cuisine + " in " + list[i].city;
                 let li2 = document.createElement("li"); 
@@ -68,7 +70,65 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
             console.log(displayList)
         })
+    }) */
+
+    //Search List
+    this.querySelectorAll('.search').forEach(item=> {
+        item.addEventListener('click', function (){
+            //document.getElementById("myList2").innerHTML = "";
+            //document.getElementById("added").value = '';
+            displayList2 = document.getElementById("myList2");
+            console.log(list2)
+            for (i = 0; i < list2.length; i++) {
+                let ul = document.createElement("ul");
+                let li = document.createElement("li");
+                li.innerText = list2[i].name + " cuisine is " + list2[i].cuisine + " in " + list2[i].city;
+                let li2 = document.createElement("li"); 
+                searchList.appendChild(li);
+            }
+            console.log(displayList2)
+        })
+    })
+
+
+    this.getElementById("display").addEventListener("click", function() {
+            createList();
+    })
+
+    this.getElementById("details").addEventListener("click", function() {
+        let localID = localStorage.getItem('parm');
+        list = JSON.parse(localStorage.getItem('list'));
+        document.getElementById("detailName").innerHTML = "Restaurant: " + list[localID - 1].name;
+        document.getElementById("detailCuisine").innerHTML = "Cuisine: " + list[localID - 1].cuisine;
+        document.getElementById("detailPrice").innerHTML = "Price range: " + list[localID - 1].price;
+        document.getElementById("detailCity").innerHTML = "Location: " + list[localID - 1].city;
+        document.getElementById("detailPriority").innerHTML = "Priority: " + list[localID - 1].priority;
     })
 
 })
 
+
+
+function createList() {
+    let myUL = document.getElementById("myList");
+    myUL.innerHTML = "";
+    
+    list.forEach(function(oneRestaurant,) {
+        var myLi = document.createElement("li");
+        myLi.classList.add("oneRestaurant");
+        myLi.setAttribute("data-parm", oneRestaurant.ID);
+        myLi.innerHTML = oneRestaurant.ID + ": " + oneRestaurant.name;
+        myUL.appendChild(myLi);
+    })
+
+    var lilist = document.getElementsByClassName("oneRestaurant");
+    let newList = Array.from(lilist);
+    newList = forEach(function (element) {
+        var parm = this.getAttribute("data-parm");
+        localStorage.setItem('parm', parm);
+        let stringList = JSON.stringify(list);
+        localStorage.setItem('list', stringList);
+
+        document.location.href="index.html#details";
+    })
+}
