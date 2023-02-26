@@ -1,2 +1,2 @@
 # RestaurantPicker
-A web app that helps users pick a restaurant to visit!
+A web app that helps users organize their favorite/anticipated restuarants to visit!
