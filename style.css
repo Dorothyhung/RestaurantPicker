@@ -1,0 +1,22 @@
+body {
+    background-color: purple;
+    text-align: center;
+    font-family: monospace, sans-serif;
+    
+  }
+  h2 {
+    color: darkred;
+    font-size: 26px;
+    margin-top: 50px;
+  }
+  img {
+    width: 80%;
+    height: 1%;
+    margin-top: 1px;
+  }
+  p {
+    color:  rgb(255, 140, 0);
+    font-size: 35px;
+    margin-top: 50px;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+  }

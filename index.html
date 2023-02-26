@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" ="IE=edge">
     <meta name="viewport" content="width=contentdevice-width, initial-scale=1.0">
+
+   
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+    
     <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Restaurant Picker</title>
@@ -14,10 +21,10 @@
 <body>
 
     <!-- Homepage -->
-    <div data-role="page" id="home">
-        <div data-role="header" data-theme="b">
+    <div data-role="page" id="home" data-theme="a">
+        <div data-role="header" data-theme="a">
             <h2>Home</h2>
-            <div data-role="navbar" data-theme="b">
+            <div data-role="navbar" >
                 <ul>
                     <li><a href=#home data-transition="fade">Home Page</a></li>
                     <li><a href=#add data-transition="fade">Add a Restaurant</a></li>
@@ -29,14 +36,13 @@
         <div data-role="content" data-theme="a">
           
             <body>
-                <h2>Welcome to Restaurant Picker</h2>
+                <h2>Welcome to Restaurant Picker !</h2>
                 <!-- Add a description of the website -->
                 <p>This website lets you keep track of a list of favorite restaurants to try!</p>
-                <img src="https://cdn-ds.com/blogs-media/sites/223/2021/07/28174026/Interior-of-an-ultra-modern-fine-dining-restaurant_b.jpg" alt="A sample image">
+                <img src=" https://cdn.vox-cdn.com/thumbor/cPAqsRfy50PJmHONYRTP-wzuANo=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24292416/Eater2022_fancybitch.jpg " alt="A sample image">
               </body>
-
         </div>
-        <div data-role="footer" data-theme="b">
+        <div data-role="footer" data-theme="a">
             <h3>Copyright 2023 by Dorothy Hung and Daniel Kamanda</h3>
         </div>
     </div>
@@ -44,9 +50,9 @@
 
     <!-- Add a Restaurant -->
     <div data-role="page" id="add">
-        <div data-role="header" data-theme="b">
+        <div data-role="header" data-theme="a">
             <h2>Add a Restaurant to Your List</h2>
-            <div data-role="navbar" data-theme="b">
+            <div data-role="navbar" data-theme="a">
                 <ul>
                     <li><a href=#home data-transition="fade">Home Page</a></li>
                     <li><a href=#add data-transition="fade">Add a Restaurant</a></li>
@@ -55,7 +61,7 @@
                 </ul>
             </div>
         </div>
-        <div data-role="content" data-theme="e">
+        <div data-role="content" data-theme="a">
             <h2>Add a Restaurant to Your List</h2>
             <form action="#">
                 <label type="rest" id="rest">Enter restaurant name:</label>
@@ -77,7 +83,7 @@
                 <input type="text" id="added" readonly="true">
             </form>
         </div>
-        <div data-role="footer" data-theme="b">
+        <div data-role="footer" data-theme="a">
             <h3>Copyright 2023 by Dorothy Hung and Daniel Kamanda</h3>
         </div>
     </div>
@@ -86,9 +92,9 @@
 
     <!-- View Favorites -->
     <div data-role="page" id="display">
-        <div data-role="header" data-theme="b">
+        <div data-role="header" data-theme="a">
             <h2>View Favorites</h2>
-            <div data-role="navbar" data-theme="b">
+            <div data-role="navbar" data-theme="a">
                 <ul>
                     <li><a href=#home data-transition="fade">Home Page</a></li>
                     <li><a href=#add data-transition="fade">Add a Restaurant</a></li>
@@ -97,13 +103,13 @@
                 </ul>
             </div>
         </div>
-        <div data-role="content" data-theme="e">
+        <div data-role="content" data-theme="a">
             <h2>Your Restaurant List</h2>
             <button>Sort by Rating</button>
             <h4>My List</h4>
             <ul id="myList"></ul>
         </div>
-        <div data-role="footer" data-theme="b">
+        <div data-role="footer" data-theme="a">
             <h3>Copyright 2023 by Dorothy Hung</h3>
         </div>
     </div>
@@ -111,9 +117,9 @@
 
     <!-- Details Page-->
     <div data-role="page" id="details">
-        <div data-role="header" data-theme="b">
+        <div data-role="header" data-theme="a">
             <h2></h2>
-            <div data-role="navbar" data-theme="b">
+            <div data-role="navbar" data-theme="a">
                 <ul>
                     <li><a href=#home data-transition="fade">Home Page</a></li>
                     <li><a href=#add data-transition="fade">Add a Restaurant</a></li>
@@ -122,13 +128,13 @@
                 </ul>
             </div>
         </div>
-        <div data-role="content" data-theme="e">
+        <div data-role="content" data-theme="a">
             <h2 id="detailName"></h2>
             <h3 id="detailCuisine"></h3>
             <h3 id="detailPrice"></h3>
             <h3 id="detailCity"></h3>
         </div>
-        <div data-role="footer" data-theme="b">
+        <div data-role="footer" data-theme="a">
             <h3>Copyright 2023 by Dorothy Hung</h3>
         </div>
     </div>
@@ -139,9 +145,9 @@
 
     <!-- Search Page -->
     <div data-role="page" id="search">
-        <div data-role="header" data-theme="b">
+        <div data-role="header" data-theme="a">
             <h2>Search List</h2>
-            <div data-role="navbar" data-theme="b">
+            <div data-role="navbar" data-theme="a">
                 <ul>
                     <li><a href=#home data-transition="fade">Home Page</a></li>
                     <li><a href=#add data-transition="fade">Add a Restaurant</a></li>
@@ -150,11 +156,13 @@
                 </ul>
             </div>
         </div>
-        <div data-role="content" data-theme="e">
+        <div data-role="content" data-theme="a">
             <ul id="searchList" data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search Restaurants" data-inset="true">My List</ul>
             <button id = "searchButton">Search</button>
         </div>
-        <div data-role="footer" data-theme="b">
+        <div data-role="footer" data-theme="a">
+            <img src=" https://res.cloudinary.com/sagacity/image/upload/c_crop,h_2715,w_3930,x_136,y_279/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/1122_SM_100Best_Joule_170_lwywll.jpg " alt="A food image">
+
             <h3>Copyright 2023 by Dorothy Hung</h3>
         </div>
     </div>
