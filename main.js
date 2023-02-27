@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Search List Page
     document.getElementById("searchButton").addEventListener("click", function() {
-        list2 = document.getElementById("searchList")
+        list2 = document.getElementById("searchList");
         document.getElementById("searchList").innerHTML = "";
         for (i = 0; i < list.length; i++) {
             let li = document.createElement("li");
@@ -81,8 +81,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             list2.appendChild(li);
             i++;
         }
-        
-        
     })
 
     //View Page
